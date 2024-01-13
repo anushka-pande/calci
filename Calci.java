@@ -13,20 +13,29 @@ public class Calci{
     }
     public static double divide(double dividend,double divisor){   //division method that takes two numbers and return their quotient
         if(divisor!=0){
-        int quotient=dividend/divisor;
-        return quotient;
+           int quotient=dividend/divisor;
+           return quotient;
         }
         else{
-        return -1; //Return -1 to indicate an error
+           return -1; //Return -1 to indicate an error
         }
     }
     public static int modulus(int num1,int num2){    //modulus method that takes two integers and return their remainder
         if(num2!=0){
-        int remainder=num1%num2;
-        return remainder;
+           int remainder=num1%num2;
+           return remainder;
         }
         else{
-        return -1;
+           return -1;  //Return -1 to indicate an error
+        }
+    }
+    public static double sqauareroot(double num){
+        if(num>=0){
+           double SquareRoot=Math.sqrt(num);
+           return SquareRoot;
+        }
+        else{
+           return -1;  //Return -1 to indicate an error
         }
     }
 }
