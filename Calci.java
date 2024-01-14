@@ -29,13 +29,26 @@ public class Calci{
            return -1;  //Return -1 to indicate an error
         }
     }
-    public static double sqauareroot(double num){
+    public static double sqauareroot(double num){      //square root method to find a square root of any number greater than zero
         if(num>=0){
            double SquareRoot=Math.sqrt(num);
            return SquareRoot;
         }
         else{
            return -1;  //Return -1 to indicate an error
+        }
+    }
+    public static double exponential(double base,double exponent){    //exponential method that takes the base and exponent as arguments and return power as result
+        double result=Math.pow(base,exponent);
+        return result;
+    }
+    public static double logarithm(double num,double base){     //lagarithmic method to find the log of any number to any base
+        if(num>0 && base>1){
+           double result=Math.log(num)/Math.log(base);
+           return result;
+        }
+        else{
+           return -1;    //Return -1 to indicate error
         }
     }
 }
