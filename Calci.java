@@ -55,13 +55,13 @@ public class Calci{
         double result=Math.pow(num,2);
         return result;
     }
-    public static double NaturalLog(double num){       //To find natural log of a non-negative number 
+    public static double NaturalLog(double num){      //To find natural log of a non-negative number 
         if(num>0){
            double result=Math.log(num);
            return result;
         }
         else{
-           return -1;
+           return -1;        //Return -1 if number is invalid
         }
     }
     public static double Logbase10(double num){    //To find the log to the base 10 of a number
