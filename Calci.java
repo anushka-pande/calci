@@ -51,4 +51,17 @@ public class Calci{
            return -1;    //Return -1 to indicate error
         }
     }
+    public static double calculateSquare(double num){
+        double result=Math.pow(num,2);
+        return result;
+    }
+    public static double NaturalLog(double num){
+        if(num>0){
+           double result=Math.log(num);
+           return result;
+        }
+        else{
+           return -1;
+        }
+    }
 }
