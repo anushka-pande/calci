@@ -82,4 +82,12 @@ public class Calci{
           return -1;     //Return -1 if number is 0, reciprocal of 0 is not defined
         }
     }
+    public static double Cube(double num){     //To find a cube of a number
+        double result=Math.pow(num,3);
+        return result;
+    }
+    public static double CubeRoot(double num){   //To find the cube root of a number
+        double result=Math.cbrt(num);
+        return result;
+    }
 }
