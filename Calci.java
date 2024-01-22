@@ -1,17 +1,17 @@
 public class Calci{
-    public static double add(double num1,double num2){     //addition method to add two numbers
+    public static double add(double num1,double num2){     //addition method to add two numbers(method 1)
         double sum=num1+num2;
         return sum;
     }
-    public static double sub(double num1,double num2){     //substraction mrthod to subtract a number from another
+    public static double sub(double num1,double num2){     //substraction mrthod to subtract a number from another(method 2)
         double difference=num1-num2;
         return difference;
     }
-    public static double multiply(double num1,double num2){   //multiplication method to multiply two numbers
+    public static double multiply(double num1,double num2){   //multiplication method to multiply two numbers(method 3)
         double mul=num1*num2;
         return mul;
     }
-    public static double divide(double dividend,double divisor){   //division method that takes two numbers and return their quotient
+    public static double divide(double dividend,double divisor){   //division method that takes two numbers and return their quotient(method 4)
         if(divisor!=0){
            int quotient=dividend/divisor;
            return quotient;
@@ -20,7 +20,7 @@ public class Calci{
            return -1; //Return -1 to indicate an error
         }
     }
-    public static int modulus(int num1,int num2){    //modulus method that takes two integers and return their remainder
+    public static int modulus(int num1,int num2){    //modulus method that takes two integers and return their remainder(method 5)
         if(num2!=0){
            int remainder=num1%num2;
            return remainder;
@@ -29,7 +29,7 @@ public class Calci{
            return -1;  //Return -1 to indicate an error
         }
     }
-    public static double sqauareroot(double num){      //square root method to find a square root of any number greater than zero
+    public static double sqauareroot(double num){      //square root method to find a square root of any number greater than zero(method 6)
         if(num>=0){
            double SquareRoot=Math.sqrt(num);
            return SquareRoot;
@@ -38,11 +38,11 @@ public class Calci{
            return -1;  //Return -1 to indicate an error
         }
     }
-    public static double exponential(double base,double exponent){    //exponential method that takes the base and exponent as arguments and return power as result
+    public static double exponential(double base,double exponent){    //exponential method that takes the base and exponent as arguments and return power as result(method 7)
         double result=Math.pow(base,exponent);
         return result;
     }
-    public static double logarithm(double num,double base){     //lagarithmic method to find the log of any number to any base
+    public static double logarithm(double num,double base){     //lagarithmic method to find the log of any number to any base(method 8)
         if(num>0 && base>1){
            double result=Math.log(num)/Math.log(base);
            return result;
@@ -51,17 +51,54 @@ public class Calci{
            return -1;    //Return -1 to indicate error
         }
     }
-    public static double calculateSquare(double num){       //square method to find the square of any number
+    public static double calculateSquare(double num){       //square method to find the square of any number(method 9)
         double result=Math.pow(num,2);
         return result;
     }
-    public static double NaturalLog(double num){      //To find natural log of a non-negative number 
+    public static double NaturalLog(double num){      //To find natural log of a non-negative number(method 10)
         if(num>0){
            double result=Math.log(num);
            return result;
         }
         else{
            return -1;        //Return -1 if number is invalid
+        }
+    }
+    public static double Logbase10(double num){    //To find the log to the base 10 of a number(method 11)
+        if(num>0){
+           double result=Math.log10(num);
+           return result;
+        }
+        else{
+           return -1;       //Return -1 if number is invalid
+        }
+    }
+    public static double Reciprocal(double num){    //To find a reciprocal of a number(method 12)
+        if(num!=0){
+           double result=1/num;
+           return result;
+        }
+        else{
+          return -1;     //Return -1 if number is 0, reciprocal of 0 is not defined
+        }
+    }
+    public static double Cube(double num){     //To find a cube of a number(method 13)
+        double result=Math.pow(num,3);
+        return result;
+    }
+    public static double CubeRoot(double num){   //To find the cube root of a number<(method 14)
+        double result=Math.cbrt(num);
+        return result;
+    }
+    public static long factorial(int num){      //To find a factorial of a number(method 15)
+        if(num<0){
+           return -1;    //return -1 to indicate error
+        }
+        else if(num==0){
+           return 1;     //return 1 if number is 0,factorial of 0 is 1
+        }
+        else{
+           return num*factorial(num-1);   //recursive case to calculate factorial of a valid number
         }
     }
 }
