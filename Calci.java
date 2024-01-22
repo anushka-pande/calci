@@ -90,4 +90,15 @@ public class Calci{
         double result=Math.cbrt(num);
         return result;
     }
+    public static long factorial(int num){      //To find a factorial of a number
+        if(num<0){
+           return -1;    //return -1 to indicate error
+        }
+        else if(num==0){
+           return 1;     //return 1 if number is 0,factorial of 0 is 1
+        }
+        else{
+           return num*factorial(num-1);   //recursive case to calculate factorial of a valid number
+        }
+    }
 }
