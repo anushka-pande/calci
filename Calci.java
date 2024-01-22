@@ -51,17 +51,17 @@ public class Calci{
            return -1;    //Return -1 to indicate error
         }
     }
-    public static double calculateSquare(double num){
+    public static double calculateSquare(double num){       //square method to find the square of any number
         double result=Math.pow(num,2);
         return result;
     }
-    public static double NaturalLog(double num){
+    public static double NaturalLog(double num){      //To find natural log of a non-negative number 
         if(num>0){
            double result=Math.log(num);
            return result;
         }
         else{
-           return -1;
+           return -1;        //Return -1 if number is invalid
         }
     }
 }
