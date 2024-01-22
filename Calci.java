@@ -64,4 +64,22 @@ public class Calci{
            return -1;
         }
     }
+    public static double Logbase10(double num){    //To find the log to the base 10 of a number
+        if(num>0){
+           double result=Math.log10(num);
+           return result;
+        }
+        else{
+           return -1;       //Return -1 if number is invalid
+        }
+    }
+    public static double Reciprocal(double num){
+        if(num!=0){
+           double result=1/num;
+           return result;
+        }
+        else{
+          return -1;     //Return -1 if number is 0, reciprocal of 0 is not defined
+        }
+    }
 }
