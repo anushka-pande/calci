@@ -51,11 +51,11 @@ public class Calci{
            return -1;    //Return -1 to indicate error
         }
     }
-    public static double calculateSquare(double num){
+    public static double calculateSquare(double num){       //square method to find the square of any number
         double result=Math.pow(num,2);
         return result;
     }
-    public static double NaturalLog(double num){
+    public static double NaturalLog(double num){       //To find natural log of a non-negative number 
         if(num>0){
            double result=Math.log(num);
            return result;
@@ -89,5 +89,16 @@ public class Calci{
     public static double CubeRoot(double num){   //To find the cube root of a number
         double result=Math.cbrt(num);
         return result;
+    }
+    public static long factorial(int num){      //To find a factorial of a number
+        if(num<0){
+           return -1;    //return -1 to indicate error
+        }
+        else if(num==0){
+           return 1;     //return 1 if number is 0,factorial of 0 is 1
+        }
+        else{
+           return num*factorial(num-1);   //recursive case to calculate factorial of a valid number
+        }
     }
 }
