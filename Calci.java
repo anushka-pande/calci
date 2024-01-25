@@ -101,4 +101,41 @@ public class Calci{
            return num*factorial(num-1);   //Recursive case to calculate factorial of a valid number
         }
     }
+    public static double Logbase10(double num){    //To find the log to the base 10 of a number
+        if(num>0){
+           double result=Math.log10(num);
+           return result;
+        }
+        else{
+           return -1;       //Return -1 if number is invalid
+        }
+    }
+    public static double Reciprocal(double num){
+        if(num!=0){
+           double result=1/num;
+           return result;
+        }
+        else{
+          return -1;     //Return -1 if number is 0, reciprocal of 0 is not defined
+        }
+    }
+    public static double Cube(double num){     //To find a cube of a number
+        double result=Math.pow(num,3);
+        return result;
+    }
+    public static double CubeRoot(double num){   //To find the cube root of a number
+        double result=Math.cbrt(num);
+        return result;
+    }
+    public static long factorial(int num){      //To find a factorial of a number
+        if(num<0){
+           return -1;    //return -1 to indicate error
+        }
+        else if(num==0){
+           return 1;     //return 1 if number is 0,factorial of 0 is 1
+        }
+        else{
+           return num*factorial(num-1);   //recursive case to calculate factorial of a valid number
+        }
+    }
 }
