@@ -110,7 +110,7 @@ public class Calci{
            return -1;       //Return -1 if number is invalid
         }
     }
-    public static double Reciprocal(double num){
+    public static double Reciprocal(double num){   //Method to find the reciprocal of a non-zero number 
         if(num!=0){
            double result=1/num;
            return result;
