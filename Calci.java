@@ -55,13 +55,13 @@ public class Calci{
         double result=Math.pow(num,2);
         return result;
     }
-    public static double NaturalLog(double num){      //To find natural log of a non-negative number
+    public static double NaturalLog(double num){       //To find natural log of a non-negative number 
         if(num>0){
            double result=Math.log(num);
            return result;
         }
         else{
-           return -1;        //Return -1 if number is invalid
+           return -1;
         }
     }
     public static double Logbase10(double num){    //To find the log to the base 10 of a number
@@ -73,7 +73,7 @@ public class Calci{
            return -1;       //Return -1 if number is invalid
         }
     }
-    public static double Reciprocal(double num){    //To find a reciprocal of a number
+    public static double Reciprocal(double num){
         if(num!=0){
            double result=1/num;
            return result;
@@ -89,5 +89,16 @@ public class Calci{
     public static double CubeRoot(double num){   //To find the cube root of a number
         double result=Math.cbrt(num);
         return result;
+    }
+    public static long factorial(int num){      //To find a factorial of a number
+        if(num<0){
+           return -1;    //return -1 to indicate error
+        }
+        else if(num==0){
+           return 1;     //return 1 if number is 0,factorial of 0 is 1
+        }
+        else{
+           return num*factorial(num-1);   //Recursive case to calculate factorial of a valid number
+        }
     }
 }
