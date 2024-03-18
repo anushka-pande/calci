@@ -45,9 +45,9 @@ public class Calci{
     	public double logarithm(double num,double base){     //lagarithmic method to find the log of any number to any base
         	double result=1;
         	if(num>0){
-           		for(int i = 0; i <= num; i++) {
-           			result = result * base;
-           			if(i = result) {
+           		for(int i = 1; i <= num; i++) {
+           			result *= base;
+           			if(num == result) {
            				return i;
            			}
            		}
@@ -55,7 +55,7 @@ public class Calci{
         	return -1;
     	}
     	public double calculateSquare(double num){       //square method to find the square of any number
-        	double result=Math.pow(num,2);
+        	double result = num * num;
         	return result;
     	}
     	public double NaturalLog(double num){       //To find natural log of a non-negative number 
@@ -70,13 +70,12 @@ public class Calci{
         	}
         	return -1;
     	}
-    	public double Reciprocal(double num){    //Method to find the reciprocal of any non-zero number
+    	public String Reciprocal(int num){    //Method to find the reciprocal of any non-zero number
         	if(num!=0){
-           		double result=1/num;
-           		return result;
+           		return 1 + "/" + num;
         	}
         	else{
-          		return -1;     //Return -1 if number is 0, reciprocal of 0 is not defined
+          		return "Undefined";     //Return -1 if number is 0, reciprocal of 0 is not defined
         	}
     	}
     	public double Cube(double num){     //To find a cube of a number
@@ -101,19 +100,30 @@ public class Calci{
         	}
     	}
     	public double powerOF10(double n){    //to find nth power of 10
-    		if(n==0){
-    			return 1;     //0th power of any number is 1
-    		} else{
-    			double result=Math.pow(10,n);
-    			return result;
+    		double result = 1;
+    		if(n == 0) {
+    			return result; //0th power of any number is 1
     		}
+    		if(n > 0) {
+    			for(int i = 0; i <= n; i++) {
+    				result *= 10;
+    			}
+    		} else {
+    			for(int i = 1; i<= -n; i++) {
+    				result /= 10;
+    			}
+    		}
+    		return result;
     	}
-    	public double powerOFe(double n){     //to find nth power of e
-     		if(n==0){
-    			return 1;     //0th power of any number is 1
-    		} else{
-    			double result=Math.exp(n);
-    			return result;
+    	public String convertMixedtoImproper(int whole, int numerator, int denominator) {
+    		if(denominator == 0) {
+    			return "Undefined";
     		}
+    		int improperNumerator = whole * denominator + numerator;
+    		return improperNumerator + "/" + denominator;
+    	}
+    	public static void main(String[] args) {
+    		Calci calci = new Calci();
+    		
     	}
 }
