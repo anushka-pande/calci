@@ -58,18 +58,6 @@ public class Calci{
         	double result = num * num;
         	return result;
     	}
-    	public double NaturalLog(double num){       //To find natural log of a non-negative number 
-        	double result=1;
-        	if(num>0){
-           		for(int i = 0; i <= num; i++) {
-           			result = result * e;
-           			if(i = result) {
-           				return i;
-           			}
-           		}
-        	}
-        	return -1;
-    	}
     	public String Reciprocal(int num){    //Method to find the reciprocal of any non-zero number
         	if(num!=0){
            		return 1 + "/" + num;
@@ -99,17 +87,17 @@ public class Calci{
            		return num*factorial(num-1);   //Recursive case to calculate factorial of a valid number
         	}
     	}
-    	public double powerOF10(double n){    //to find nth power of 10
+    	public double powerOF10(double num){    //to find nth power of 10
     		double result = 1;
-    		if(n == 0) {
+    		if(num == 0) {
     			return result; //0th power of any number is 1
     		}
-    		if(n > 0) {
-    			for(int i = 0; i <= n; i++) {
+    		if(num > 0) {
+    			for(int i = 0; i <= num; i++) {
     				result *= 10;
     			}
     		} else {
-    			for(int i = 1; i<= -n; i++) {
+    			for(int i = 1; i<= -num; i++) {
     				result /= 10;
     			}
     		}
@@ -122,8 +110,48 @@ public class Calci{
     		int improperNumerator = whole * denominator + numerator;
     		return improperNumerator + "/" + denominator;
     	}
+    	public double summation(double num,int startIndex,int endIndex) {
+    		double result = 0;
+    		if(startIndex > endIndex || startIndex < 0) {
+    			return -1;
+    		}
+    		else if(startIndex == endIndex) {
+    			return num;
+    		}
+    		else {
+    			for(int i = startIndex; i <= endIndex;i++) {
+    				result += num;
+    			}
+    		}
+    		return result;
+    	}
+    	public double convertDegreeToRadian(double degrees) {
+    		double piApprox = 3.14159;
+    		
+    		return degrees * piApprox / 180.0;
+    	}
+    	public double convertRadianToDegree(double radians) {
+    		double piApprox = 3.14159;
+    		
+    		return radians * 180.0 / piApprox;
+    	}
+    	public double sin(double angleInRadians) {
+		double result = 0;
+		for (int i = 0; i < 10; i++) { // Adjust the number of iterations for accuracy
+		    result += exponential(-1, i) * exponential(angleInRadians, 2 * i + 1) / factorial(2 * i + 1);
+		}
+		return result;
+    	}
+    	public double cos(double angleInRadians) {
+    		double sin_value = sin(angleInRadians);
+    		double sin_square = sin_value * sin_value;
+    		double cos_square = (1 - sin_square);
+    		
+    		return Math.sqrt(cos_square);
+    	}
     	public static void main(String[] args) {
     		Calci calci = new Calci();
     		
     	}
+    	
 }
