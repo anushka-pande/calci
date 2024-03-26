@@ -13,7 +13,7 @@ public class Calci{
     	}
     	public double divide(double dividend,double divisor) {   //division method that takes two numbers and return their quotient
         	if(divisor!=0) {
-           		int quotient=dividend/divisor;
+           		double quotient=dividend/divisor;
            		return quotient;
         	} else{
            		return -1; //Return -1 to indicate an error
@@ -75,14 +75,22 @@ public class Calci{
            		return num*factorial(num-1);   //Recursive case to calculate factorial of a valid number
         	}
     	}
-    	public String convertMixedtoImproper(int whole, int numerator, int denominator) {
+    	public String convertMixedtoImproper(int whole, int numerator, int denominator) {                      // to conert a mixed fraction into improper fraction
     		if(denominator == 0) {
     			return "Undefined";
     		}
     		int improperNumerator = whole * denominator + numerator;
     		return improperNumerator + "/" + denominator;
     	}
-    	public double summation(double num,int startIndex,int endIndex) {
+    	public String convertImpropertoMixed(int numerator, int denominator) {                     // to convert improper fraction into mixed fraction
+    		if(denominator == 0) {
+    			return "Undefined";
+    		}
+    		int whole = numerator / denominator;
+    		int mixedNumerator = numerator % denominator;
+    		return whole + " " + mixedNumerator + "/" + denominator;
+    	}
+    	public double summation(double num,int startIndex,int endIndex) {             //to find summation of a number (endIndex - startIndex + 1) number of times
     		double result = 0;
     		if(startIndex > endIndex || startIndex < 0) {
     			return -1;
@@ -125,17 +133,34 @@ public class Calci{
     		}
     		return result;
     	}
-    	public double convertDegreeToRadian(double degrees) {
+    	public double powerOFe(double num) {    //to find nth power of e
+    		double e = 2.718281828;
+    		double result = 1;
+    		if(num == 0) {
+    			return result; //0th power of any number is 1
+    		}
+    		if(num > 0) {
+    			for(double i = 0; i < num; i++) {
+    				result *= e;
+    			}
+    		} else {
+    			for(double i = num; i< 0; i++) {
+    				result /= e;
+    			}
+    		}
+    		return result;
+    	}
+    	public double convertDegreeToRadian(double degrees) {          // to conevrt degrees to radians
     		double piApprox = 3.14159;
     		
     		return degrees * piApprox / 180.0;
     	}
-    	public double convertRadianToDegree(double radians) {
+    	public double convertRadianToDegree(double radians) {           // to convert radians to degree
     		double piApprox = 3.14159;
     		
     		return radians * 180.0 / piApprox;
     	}
-    	public double sin(double angleInRadians) {
+    	public double sin(double angleInRadians) {                       // to find sin value of any angle in radians
 		double result = 0;
 		int terms = 10;
 		
@@ -144,7 +169,7 @@ public class Calci{
 		}
 		return result;
     	}
-    	public double cos(double angleInRadians) {
+    	public double cos(double angleInRadians) {                       // to find cos value of any angle in radians
     		double result = 0;
     		int terms = 10;
     		
@@ -153,30 +178,51 @@ public class Calci{
     		}
     		return result;
     	}
-    	public double tan(double angleInRadians) {
+    	public double tan(double angleInRadians) {                        // to find tan value of any angle in radians
     		double sin_value = sin(angleInRadians);
     		double cos_value = cos(angleInRadians);
     		
-    		return sin_value / cos_value;
+    		return (sin_value / cos_value);
     	}
-    	public double cot(double angleInRadians) {
+    	public double cot(double angleInRadians) {                          // to find cot value of any angle in radians
     		double tan_value = tan(angleInRadians);
     		
     		return (1 / tan_value);
     	}
-    	public double cosec(double angleInRadians) {
+    	public double cosec(double angleInRadians) {                       // to find cosec value of any angle in radians
     		double sin_value = sin(angleInRadians);
     		
     		return (1 / sin_value);
     	}
-    	public double sec(double angleInRadians) {
+    	public double sec(double angleInRadians) {                           // to find sec value of any angle in radians
     		double cos_value = cos(angleInRadians);
     		
     		return (1 / cos_value);
     	}
     	public static void main(String[] args) {
     		Calci calci = new Calci();
-    		
+    		/*
+    		System.out.println(calci.squareroot(100));
+    		System.out.println(calci.CubeRoot(1000));
+    		System.out.println(calci.Cube(10.4839));
+    		System.out.println(calci.exponential(5.78,4));
+    		System.out.println(calci.logarithm(512,2));
+    		System.out.println(calci.Reciprocal(5));
+    		System.out.println(calci.calculateSquare(5));
+    		System.out.println(calci.convertMixedtoImproper(2,1,3));
+    		System.out.println(calci.convertImpropertoMixed(7,3));
+    		System.out.println(calci.powerOF10(-5));
+    		System.out.println(calci.powerOFe(-5));
+    		System.out.println(calci.summation(25,0,5));
+    		System.out.println(calci.convertDegreeToRadian(180));
+    		System.out.println(calci.convertRadianToDegree(3.14159));
+    		System.out.println(calci.sin(3.14159/4));
+    		System.out.println(calci.cos(3.14159/4));
+    		System.out.println(calci.tan(3.14159/4));
+    		System.out.println(calci.cot(3.14159/4));
+    		System.out.println(calci.cosec(3.14159/4));
+    		System.out.println(calci.sec(3.14159/4));
+    		*/
     	}
     	
 }
