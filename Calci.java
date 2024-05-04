@@ -1,48 +1,52 @@
+import java.util.Scanner;
+
 public class Calci{
-	public double add(double num1,double num2) {     //addition method to add two numbers
-	        double sum=num1+num2;
+	public double add(double num1, double num2) {     //addition method to add two numbers
+	        double sum = num1 + num2;
         	return sum;
     	}
-    	public double sub(double num1,double num2) {     //substraction mrthod to subtract a number from another
-        	double difference=num1-num2;
+    	public double sub(double num1, double num2) {     //substraction mrthod to subtract a number from another
+        	double difference = num1 - num2;
         	return difference;
     	}
-    	public double multiply(double num1,double num2) {   //multiplication method to multiply two numbers
-        	double mul=num1*num2;
+    	public double multiply(double num1, double num2) {   //multiplication method to multiply two numbers
+        	double mul = num1 * num2;
         	return mul;
     	}
-    	public double divide(double dividend,double divisor) {   //division method that takes two numbers and return their quotient
-        	if(divisor!=0) {
-           		double quotient=dividend/divisor;
+    	public long divide(long dividend, long divisor) {   //division method that takes two numbers and return their quotient
+        	if(divisor != 0) {
+           		long quotient = dividend / divisor;
            		return quotient;
-        	} else{
-           		return -1; //Return -1 to indicate an error
+        	}
+        	else{
+           		return -1;                         //Return -1 to indicate an error
         	}
     	}
-    	public int modulus(int num1,int num2) {    //modulus method that takes two integers and return their remainder
-        	if(num2!=0) {
-           		int remainder=num1%num2;
+    	public int modulus(int num1, int num2) {    //modulus method that takes two integers and return their remainder
+        	if(num2 != 0) {
+           		int remainder = num1 % num2;
            		return remainder;
-        	} else {
-           		return -1;  //Return -1 to indicate an error
+        	} 
+        	else {
+           		return -1;                        //Return -1 to indicate an error
         	}
     	}
     	public double calculateSquare(double num){       //square method to find the square of any number
         	double result = num * num;
         	return result;
     	}
-    	public double Cube(double num){     //To find a cube of a number
+    	public double Cube(double num){                           //To find a cube of a number
         	double cube = num * num * num;
         	return cube;
     	}
-    	public double exponential(double base,long exponent){    //exponential method that takes the base and exponent as arguments and return power as result
+    	public double exponential(double base, long exponent){    //exponential method that takes the base and exponent as arguments and return power as result
         	double result = 1;
         	for (int i = 1; i <= exponent; i++) {
         		result *= base;
         	}
         	return result;
     	}
-    	public long squareroot(long num) {      //square root method to find a square root of any number greater than zero
+    	public long squareroot(long num) {                       //square root method to find a square root of any number greater than zero
         	for (int i = 0; i <= num; i++) {
         		if(i * i == num) {
         			return i;
@@ -58,7 +62,7 @@ public class Calci{
         	}
         	return -1;
     	}
-    	public String Reciprocal(int num){    //Method to find the reciprocal of any non-zero number
+    	public String Reciprocal(long num){    //Method to find the reciprocal of any non-zero number
         	if(num!=0){
            		return 1 + "/" + num;
         	}
@@ -66,28 +70,44 @@ public class Calci{
           		return "Undefined";     //Return -1 if number is 0, reciprocal of 0 is not defined
         	}
     	}
-    	public long factorial(int num){      //To find a factorial of a number
+    	public long factorial(long num){      //To find a factorial of a number
         	if(num<0){
            		return -1;    //return -1 to indicate error
-        	} else if(num==0){
+        	} 
+        	else if(num==0){
            		return 1;     //return 1 if number is 0,factorial of 0 is 1
-        	} else{
+        	} 
+        	else{
            		return num*factorial(num-1);   //Recursive case to calculate factorial of a valid number
         	}
     	}
-    	public String convertMixedtoImproper(int whole, int numerator, int denominator) {                      // to conert a mixed fraction into improper fraction
+    	public String nPr(long n, long r) {
+    		Calci calci = new Calci();
+    		n = calci.factorial(n);
+    		r = calci.factorial(r);
+    		return n + "/" + r;
+    	}
+    	public String nCr(long n, long r) {
+    		Calci calci = new Calci();
+    		long a = n - r;
+    		n = calci.factorial(n);
+    		r = calci.factorial(r);
+    		a = calci.factorial(a);
+    		return n + "/" + (r + "*" + a);
+    	}
+    	public String convertMixedtoImproper(long whole, long numerator, long denominator) {                      // to conert a mixed fraction into improper fraction
     		if(denominator == 0) {
     			return "Undefined";
     		}
-    		int improperNumerator = whole * denominator + numerator;
+    		long improperNumerator = whole * denominator + numerator;
     		return improperNumerator + "/" + denominator;
     	}
-    	public String convertImpropertoMixed(int numerator, int denominator) {                     // to convert improper fraction into mixed fraction
+    	public String convertImpropertoMixed(long numerator, long denominator) {                     // to convert improper fraction into mixed fraction
     		if(denominator == 0) {
     			return "Undefined";
     		}
-    		int whole = numerator / denominator;
-    		int mixedNumerator = numerator % denominator;
+    		long whole = numerator / denominator;
+    		long mixedNumerator = numerator % denominator;
     		return whole + " " + mixedNumerator + "/" + denominator;
     	}
     	public double summation(double num,int startIndex,int endIndex) {             //to find summation of a number (endIndex - startIndex + 1) number of times
@@ -174,7 +194,7 @@ public class Calci{
     		int terms = 10;
     		
     		for(int i = 0; i < terms; i++) {
-    			result += exponential(-1,i) * exponential(angleInRadians, 2 * i) / factorial(2 * i);
+    			result += exponential(-1, i) * exponential(angleInRadians, 2 * i) / factorial(2 * i);
     		}
     		return result;
     	}
@@ -199,30 +219,99 @@ public class Calci{
     		
     		return (1 / cos_value);
     	}
+    	static class Complex {
+		double real;
+		double imaginary;
+		Complex(double real, double imaginary) {
+			this.real = real;
+			this.imaginary = imaginary;
+		}
+		public Complex add(Complex C) {
+			double realPart = this.real + C.real;
+			double imaginaryPart = this.imaginary + C.imaginary;
+			return new Complex(realPart, imaginaryPart);
+		}
+		public Complex subtract(Complex C) {
+			double realPart = this.real - C.real;
+			double imaginaryPart = this.imaginary - C.imaginary;
+			return new Complex(realPart, imaginaryPart);
+		}
+		public Complex mul(Complex C) {
+			double realPart = this.real * C.real - this.imaginary * C.imaginary;
+			double imaginaryPart = this.real * C.imaginary + this.imaginary * C.real;
+			return new Complex(realPart, imaginaryPart);
+		}
+		public Complex div(Complex C) {
+			double denominator = C.real * C.real + C.imaginary * C.imaginary;
+			double realPart = (this.real * C.real + this.imaginary * C.imaginary) / denominator;
+			double imaginaryPart = (this.imaginary * C.real - this.real * C.imaginary) / denominator;
+			return new Complex(realPart, imaginaryPart);
+		}
+		public String toString() {
+			return "(" + real + "+" + imaginary + "i)";
+		}
+	}
     	public static void main(String[] args) {
+    		
     		Calci calci = new Calci();
+    		Scanner scanner = new Scanner(System.in);
+    		int choice;
+    		
+    		System.out.println("Welcome to Calculator !!");
+    		
+    		do {
+    		    System.out.println("Choose an operation:");
+		    System.out.println("1. Addition");
+		    System.out.println("2. Subtraction");
+		    System.out.println("3. Multiplication");
+		    System.out.println("4. Division");
+		    
+		    System.out.println("5. Exit");
+		    
+		     System.out.print("Enter your choice: ");
+		    choice = scanner.nextInt();
+
+		    switch (choice) {
+		        case 1:
+		            System.out.print("Enter first number: ");
+		            double num1 = scanner.nextDouble();
+		            System.out.print("Enter second number: ");
+		            double num2 = scanner.nextDouble();
+                    System.out.println("Result: " + calci.add(num1, num2));
+		            break;
+		        case 2:
+		            // Implement other cases similarly
+		            break;
+		        case 3:
+		            break;
+		        case 4:
+		            break;
+		        case 5:
+		            System.out.println("Exiting...");
+		            break;
+		        default:
+		            System.out.println("Invalid choice. Please enter a number between 1 and 5.");
+            		}
+    		}while(choice != 5);
+    		
     		/*
-    		System.out.println(calci.squareroot(100));
-    		System.out.println(calci.CubeRoot(1000));
-    		System.out.println(calci.Cube(10.4839));
-    		System.out.println(calci.exponential(5.78,4));
-    		System.out.println(calci.logarithm(512,2));
-    		System.out.println(calci.Reciprocal(5));
-    		System.out.println(calci.calculateSquare(5));
-    		System.out.println(calci.convertMixedtoImproper(2,1,3));
-    		System.out.println(calci.convertImpropertoMixed(7,3));
-    		System.out.println(calci.powerOF10(-5));
-    		System.out.println(calci.powerOFe(-5));
-    		System.out.println(calci.summation(25,0,5));
-    		System.out.println(calci.convertDegreeToRadian(180));
-    		System.out.println(calci.convertRadianToDegree(3.14159));
-    		System.out.println(calci.sin(3.14159/4));
-    		System.out.println(calci.cos(3.14159/4));
-    		System.out.println(calci.tan(3.14159/4));
-    		System.out.println(calci.cot(3.14159/4));
-    		System.out.println(calci.cosec(3.14159/4));
-    		System.out.println(calci.sec(3.14159/4));
-    		*/
+    		Complex num1 = new Complex(7,5);
+		Complex num2 = new Complex(5,3);
+		
+		Complex sum = num1.add(num2);
+		Complex diff = num1.subtract(num2);
+		Complex product = num1.mul(num2);
+		Complex division = num1.div(num2);
+		
+		System.out.println("Sum = " + sum);
+		System.out.println("Difference = " + diff);
+		System.out.println("Product = " + product);
+		System.out.println("Division = " + division);
+		
+		System.out.println(calci.nPr(5, 3));
+		System.out.println(calci.nCr(5, 3));
+		*/
+		scanner.close();
     	}
     	
 }
