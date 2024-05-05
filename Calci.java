@@ -254,64 +254,10 @@ public class Calci{
     	public static void main(String[] args) {
     		
     		Calci calci = new Calci();
-    		Scanner scanner = new Scanner(System.in);
-    		int choice;
     		
     		System.out.println("Welcome to Calculator !!");
     		
-    		do {
-    		    System.out.println("Choose an operation:");
-		    System.out.println("1. Addition");
-		    System.out.println("2. Subtraction");
-		    System.out.println("3. Multiplication");
-		    System.out.println("4. Division");
-		    
-		    System.out.println("5. Exit");
-		    
-		     System.out.print("Enter your choice: ");
-		    choice = scanner.nextInt();
-
-		    switch (choice) {
-		        case 1:
-		            System.out.print("Enter first number: ");
-		            double num1 = scanner.nextDouble();
-		            System.out.print("Enter second number: ");
-		            double num2 = scanner.nextDouble();
-                    System.out.println("Result: " + calci.add(num1, num2));
-		            break;
-		        case 2:
-		            // Implement other cases similarly
-		            break;
-		        case 3:
-		            break;
-		        case 4:
-		            break;
-		        case 5:
-		            System.out.println("Exiting...");
-		            break;
-		        default:
-		            System.out.println("Invalid choice. Please enter a number between 1 and 5.");
-            		}
-    		}while(choice != 5);
     		
-    		/*
-    		Complex num1 = new Complex(7,5);
-		Complex num2 = new Complex(5,3);
-		
-		Complex sum = num1.add(num2);
-		Complex diff = num1.subtract(num2);
-		Complex product = num1.mul(num2);
-		Complex division = num1.div(num2);
-		
-		System.out.println("Sum = " + sum);
-		System.out.println("Difference = " + diff);
-		System.out.println("Product = " + product);
-		System.out.println("Division = " + division);
-		
-		System.out.println(calci.nPr(5, 3));
-		System.out.println(calci.nCr(5, 3));
-		*/
-		scanner.close();
     	}
     	
 }
