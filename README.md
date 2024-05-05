@@ -1,1 +1,1 @@
-# Java Practical 2
+# Java Practical 2 - Engineering Calculator
