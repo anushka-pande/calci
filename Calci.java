@@ -13,14 +13,20 @@ public class Calci{
         	double mul = num1 * num2;
         	return mul;
     	}
-    	public long divide(long dividend, long divisor) {   //division method that takes two numbers and return their quotient
-        	if(divisor != 0) {
-           		long quotient = dividend / divisor;
-           		return quotient;
-        	}
-        	else{
-           		return -1;                         //Return -1 to indicate an error
-        	}
+    	public double divide(double dividend, double divisor) {   //division method that takes two numbers and return their quotient
+    		try {
+    			if(divisor == 0) {
+           			throw new ArithmeticException("Division by zero is not allowed");
+        		}
+        		return dividend / divisor;
+    		}
+    		catch (ArithmeticException e) {
+    			e.printStackTrace();
+    			return Double.NaN;
+    		}
+    		finally {
+    			System.out.println("Division operation completed");
+    		}
     	}
     	public int modulus(int num1, int num2) {    //modulus method that takes two integers and return their remainder
         	if(num2 != 0) {
@@ -81,19 +87,19 @@ public class Calci{
            		return num*factorial(num-1);   //Recursive case to calculate factorial of a valid number
         	}
     	}
-    	public String nPr(long n, long r) {
+    	public String nPr(long n, long r) {                             // to find permutation using factorial method
     		Calci calci = new Calci();
     		n = calci.factorial(n);
     		r = calci.factorial(r);
-    		return n + "/" + r;
+    		return n + "/" + r;                                    // returns a String (n / r)
     	}
-    	public String nCr(long n, long r) {
+    	public String nCr(long n, long r) {                             // to find combination using factorial method
     		Calci calci = new Calci();
     		long a = n - r;
     		n = calci.factorial(n);
     		r = calci.factorial(r);
     		a = calci.factorial(a);
-    		return n + "/" + (r + "*" + a);
+    		return n + "/" + (r + "*" + a);                        // returns a String (n / r * a)
     	}
     	public String convertMixedtoImproper(long whole, long numerator, long denominator) {                      // to conert a mixed fraction into improper fraction
     		if(denominator == 0) {
@@ -137,10 +143,10 @@ public class Calci{
         	}
         	return -1;
     	}
-    	public double powerOF10(double num){    //to find nth power of 10
+    	public double powerOF10(double num){                 //to find nth power of 10
     		double result = 1;
     		if(num == 0) {
-    			return result; //0th power of any number is 1
+    			return result;                      //0th power of any number is 1
     		}
     		if(num > 0) {
     			for(int i = 0; i <= num; i++) {
@@ -153,11 +159,11 @@ public class Calci{
     		}
     		return result;
     	}
-    	public double powerOFe(double num) {    //to find nth power of e
+    	public double powerOFe(double num) {                        //to find nth power of e
     		double e = 2.718281828;
     		double result = 1;
     		if(num == 0) {
-    			return result; //0th power of any number is 1
+    			return result;                             //0th power of any number is 1
     		}
     		if(num > 0) {
     			for(double i = 0; i < num; i++) {
@@ -219,7 +225,7 @@ public class Calci{
     		
     		return (1 / cos_value);
     	}
-    	static class Complex {
+    	static class Complex {                                              // Complex class to perform add, sub, mul, div operations on complex numbers
 		double real;
 		double imaginary;
 		Complex(double real, double imaginary) {
@@ -256,7 +262,6 @@ public class Calci{
     		Calci calci = new Calci();
     		
     		System.out.println("Welcome to Calculator !!");
-    		
     		
     	}
     	
